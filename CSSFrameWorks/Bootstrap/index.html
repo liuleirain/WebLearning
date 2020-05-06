@@ -46,7 +46,134 @@
       <p class="text-right text-capitalize">Right aligned text.</p>
       <p class="text-justify">Justified text.</p>
       <p class="text-nowrap">No wrap text.</p>
+
+      <!-- QUICK FLOATS -->
+      <div class="float-right">Div floated to right</div>
+      <div class="float-left">Div floated to left</div>
+
+      <!-- Clear Float -->
+      <div class="clearfix"></div>
+      <hr />
+
+      <!-- BlockQuote -->
+      <blockquote class="blockquote-footer">
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique
+          error maiores expedita deserunt perspiciatis, et suscipit obcaecati ab
+          repudiandae nulla dolorem, tempore atque ex nesciunt. Asperiores
+          reiciendis fugiat facilis et.
+        </p>
+        <footer>Quote by <cite title="John Doe">John Doe</cite></footer>
+      </blockquote>
+
+      <hr />
+
+      <!-- Lists -->
+      <ul class="list-unstyled">
+        <li>Item One</li>
+        <li>Item Two</li>
+        <li>Item Three</li>
+        <li>Item Fore</li>
+      </ul>
+      <ul>
+        <li class="list-inline-item">Item One</li>
+        <li class="list-inline-item">Item Two</li>
+        <li class="list-inline-item">Item Three</li>
+        <li class="list-inline-item">Item Fore</li>
+      </ul>
+
+      <!-- Code -->
+      <code>&lt;h1&gt;Heading Text&lt;/h1&gt;</code>
+      <br />
+      Change directiory with<kbd>cd</kbd>
+      <br />
+      To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd>
+
+      <hr />
+
+      <!-- Contextual Colors -->
+      <p class="text-primary">Hello World</p>
+      <p class="text-success">Hello World</p>
+      <p class="text-info">Hello World</p>
+      <p class="text-warning">Hello World</p>
+      <p class="text-danger">Hello World</p>
+      <p class="text-muted">Hello World</p>
+
+      <!-- Contextual Backgroud Colors -->
+
+      <p class="bg-primary">Hello World</p>
+      <p class="bg-success">Hello World</p>
+      <p class="bg-info">Hello World</p>
+      <p class="bg-warning">Hello World</p>
+      <p class="bg-danger">Hello World</p>
+      <p class="bg-muted">Hello World</p>
     </div>
+
+    <hr />
+
+    <div class="container">
+      <!-- Buttons -->
+      <button class="btn btn-default">Button</button>
+      <a href="#" class="btn btn-default" role="button">Button</a>
+      <input type="submit" value="Submit" class="btn btn-default" />
+
+      <!-- Contextual Buttons -->
+      <button class="btn btn-default">Default</button>
+      <button class="btn btn-primary">Primary</button>
+      <button class="btn btn-success">Seccess</button>
+      <button class="btn btn-info">Info</button>
+      <button class="btn btn-warning">Warning</button>
+      <button class="btn btn-danger">Danger</button>
+      <button class="btn btn-link">Link</button>
+
+      <!-- Button Sizes -->
+      <button class="btn btn-default btn-lg">Default</button>
+      <button class="btn btn-default">Default</button>
+      <button class="btn btn-default btn-sm">Default</button>
+
+      <hr />
+
+      <!-- Forms -->
+      <div class="container">
+        <form action="">
+          <div class="form-group">
+            <label for="">Name</label>
+            <input type="text" class="form-control" placeholder="Add Name" />
+            <label for="">Email</label>
+            <input type="text" class="form-control" placeholder="Add Email" />
+            <label for="">Message</label>
+            <input type="text" class="form-control" placeholder="Add Message" />
+          </div>
+          <div class="form-group">
+            <label for="">Gender</label>
+            <select name="" id="" class="form-control">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="">Upload File</label>
+            <input type="file" />
+            <p class="font-weight-light">Only png and jpg allowed</p>
+          </div>
+
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" />
+            <label class="form-check-label" for="">
+              Check me out
+            </label>
+          </div>
+
+          <button class="btn btn-default" type="submit">Submit</button>
+
+          <hr />
+        </form>
+      </div>
+    </div>
+
+    <div style="height: 50vh;"></div>
 
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script
