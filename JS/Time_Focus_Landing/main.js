@@ -4,6 +4,8 @@ const time = document.getElementById('time'),
   name = document.getElementById('name'),
   focus = document.getElementById('focus');
 
+const showPmAm = true;
+
 // Show Time
 function showTime() {
   let today = new Date(),
@@ -20,7 +22,7 @@ function showTime() {
   // Output Time
   time.innerHTML = `${hour}<span>:</span>${addZero(min)}<span>:</span>${addZero(
     sec
-  )}`;
+  )} ${showPmAm ? amPm : ''}`;
 
   setTimeout(showTime, 1000);
 }
@@ -34,26 +36,78 @@ function addZero(n) {
 function setBgGreet() {
   let today = new Date(),
     hour = today.getHours();
+  console.log(hour);
 
   if (hour < 12) {
     // Morning
-    document.body.style.backgroundImage =
-      "url('https://cdn.pixabay.com/photo/2015/06/19/21/24/the-road-815297__340.jpg')";
+    document.body.style.background = "url('./morning.jpg') center center/cover";
+    document.body.style.color = 'white';
     greeting.textContent = 'Good Morning';
   } else if (hour < 18) {
     // Afternoon
-    document.body.style.backgroundImage =
-      "url('https://cdn.pixabay.com/photo/2014/07/01/12/36/tea-381235__340.jpg')";
+    document.body.style.background =
+      "url('./afternoon.jpg') center center/cover";
     greeting.textContent = 'Good Afternoon';
+    document.body.style.color = 'white';
   } else {
     // Evening
-    document.body.style.backgroundImage =
-      "url('https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569__340.jpg')";
+    document.body.style.background = "url('./evening.jpg') center center/cover";
     greeting.textContent = 'Good Evening';
     document.body.style.color = 'white';
   }
 }
 
+// Get Name
+function getName() {
+  if (localStorage.getItem('name') === null) {
+    name.textContent = '[Enter Name]';
+  } else {
+    name.textContent = localStorage.getItem('name');
+  }
+}
+
+// Set Name
+function setName(e) {
+  if (e.type === 'keypress') {
+    // Make sure enter is pressed
+    if (e.which == 13 || e.keyCode == 13) {
+      localStorage.setItem('name', e.target.innerText);
+      name.blur();
+    }
+  } else {
+    localStorage.setItem('name', e.target.innerText);
+  }
+}
+
+// Set Focus
+function setFocus(e) {
+  if (e.type === 'keypress') {
+    // Make sure enter is pressed
+    if (e.which == 13 || e.keyCode == 13) {
+      localStorage.setItem('focus', e.target.innerText);
+      focus.blur();
+    }
+  } else {
+    localStorage.setItem('focus', e.target.innerText);
+  }
+}
+
+// Get Focus
+function getFocus() {
+  if (localStorage.getItem('focus') === null) {
+    focus.textContent = '[Enter Focus]';
+  } else {
+    focus.textContent = localStorage.getItem('Focus');
+  }
+}
+
+name.addEventListener('keypress', setName);
+name.addEventListener('blur', setName);
+focus.addEventListener('keypress', setFocus);
+focus.addEventListener('blur', setFocus);
+
 // Run
 showTime();
 setBgGreet();
+getName();
+getFocus();
