@@ -15,7 +15,9 @@ function getTodos() {
     .catch((err) => console.log(err)); */
 
   axios
-    .get('https://jsonplaceholder.typicode.com/todos?_limit=5')
+    .get('https://jsonplaceholder.typicode.com/todos?_limit=5', {
+      timeout: 5000,
+    })
     .then((res) => showOutput(res))
     .catch((err) => console.log(err));
 }
@@ -105,7 +107,11 @@ function transformResponse() {
 // ERROR HANDLING
 function errorHandling() {
   axios
-    .get('https://jsonplaceholder.typicode.com/todoss')
+    .get('https://jsonplaceholder.typicode.com/todoss', {
+      validateStatus: function (status) {
+        return status < 500; //Reject only if status is grater or equal to 500
+      },
+    })
     .then((res) => showOutput(res))
     .catch((err) => {
       if (err.response) {
@@ -148,10 +154,11 @@ function cancelToken() {
 
 // AXIOS INSTANCE
 const axiosInstance = axios.create({
+  //Other custom settings
   baseURL: 'https://jsonplaceholder.typicode.com/',
 });
 
-axiosInstance.get('/comments').then(res => showOutput(res));
+// axiosInstance.get('/comments').then((res) => showOutput(res));
 
 // INTERCEPTING REQUESTS & RESPONSES
 axios.interceptors.request.use(
